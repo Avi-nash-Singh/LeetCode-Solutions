@@ -1,19 +1,11 @@
-/**
- * @param {Function} fn
- * @return {Function}
- */
-
 function memoize(fn) {
 let callCount = 0;
 let cache = {};
-  return function(...args) {
-    
+  return function(...args) { 
     const key = JSON.stringify(args)
-    
     if (key in cache) {
       return cache[key];
     }
-    
     callCount++;
     const result = fn(...args);
     cache[key] = result;
